@@ -10,7 +10,7 @@
             //MainPage = new AppShell();
 
             // This one and other non-shell TabbedPage/NavigationPage/Page combinations all crash
-            MainPage = new NavigationPage(new MainPage());
+            //MainPage = new NavigationPage(new MainPage());
 
             //Also crashes
             //MainPage = new MainPage(); //Also crashes
@@ -22,6 +22,11 @@
                 Children = { new NavigationPage(new MainPage()) }
             };
             */
+        }
+
+        protected override Window CreateWindow(IActivationState activationState)
+        {
+            return new Window(new NavigationPage(new MainPage()));
         }
     }
 }
