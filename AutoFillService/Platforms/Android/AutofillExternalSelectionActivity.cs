@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using AndroidX.AppCompat.App;
 
 namespace AutoFillService.Droid.Autofill
 {
@@ -8,7 +9,7 @@ namespace AutoFillService.Droid.Autofill
         Theme = "@style/Maui.SplashTheme",
         NoHistory = true,
         LaunchMode = LaunchMode.SingleTop)]
-    public class AutofillExternalSelectionActivity : MauiAppCompatActivity
+    public class AutofillExternalSelectionActivity : AppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
@@ -17,6 +18,12 @@ namespace AutoFillService.Droid.Autofill
             System.Diagnostics.Debug.WriteLine("AutofillExternalSelectionActivity Created!");
 
             SetResult(Result.Canceled);
+
+            AutoFillService.MainActivity.PendingMainPage = new NavigationPage(new ContentPage()
+            {
+                Content = new Label() { Text = "New Pager" }
+            });
+
             Finish();
             return;
         }
