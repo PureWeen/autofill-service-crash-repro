@@ -21,8 +21,8 @@ namespace AutoFillService.Droid.Autofill
                 var focusedId = request.FillContexts?.LastOrDefault()?.FocusedId;
                 var context = ApplicationContext;
 
-                var intent = new Intent(context, typeof(AutofillExternalSelectionActivity));
-                //var intent = new Intent(context, typeof(MainActivity)); // We can send intent for MainActivity but it will also crash
+                //var intent = new Intent(context, typeof(AutofillExternalSelectionActivity));
+                var intent = new Intent(context, typeof(MainActivity)); // We can send intent for MainActivity but it will also crash
 
                 var pendingIntent = PendingIntent.GetActivity(context, 1, intent, PendingIntentFlags.CancelCurrent | PendingIntentFlags.Mutable );
 
