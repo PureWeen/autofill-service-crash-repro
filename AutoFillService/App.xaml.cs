@@ -11,6 +11,16 @@ namespace AutoFillService
 
         protected override Window CreateWindow(IActivationState activationState)
         {
+            // I just picked something here to trigger two different paths. In your code you'd probably inspect the bundle
+            // or context to determine what you want to do
+            /*
+            #if ANDROID
+            if (activationState is ActivationState aState)
+            {
+                aState.SavedInstance.GetBoolean("isAutoFill");
+            }
+            #endif
+            */
             if (activationState.State.Count > 0)
             {
                 var userApplicaitonWindow = Windows.OfType<UserApplicationWindow>().FirstOrDefault();
